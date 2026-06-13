@@ -1,0 +1,90 @@
+aid: nasa-neows
+name: NASA NeoWs
+description: >
+  NASA Near Earth Object Web Service (NeoWs) REST API for searching and browsing
+  near Earth asteroid information. Users can search for asteroids based on their
+  closest approach date to Earth, look up a specific asteroid by NASA JPL small
+  body (SPK-ID), and browse the overall dataset. Data originates from the NASA
+  JPL Asteroid team and is maintained by the SpaceRocks Team.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+type: Index
+tags:
+  - NASA
+  - Asteroids
+  - Near Earth Objects
+  - Space
+  - Science
+  - Open Data
+  - Planetary Defense
+
+apis:
+
+  - aid: nasa-neows:nasa-neows
+    name: NASA NeoWs API
+    description: >
+      RESTful web service providing near Earth asteroid information from the NASA
+      JPL Asteroid team. Exposes three endpoints: a date-range feed of close
+      approach events (max 7-day window), a per-asteroid lookup by SPK-ID, and a
+      paginated browse of the complete NEO dataset. Each asteroid record includes
+      estimated diameter, hazardous classification, orbital data, relative
+      velocity, and miss distances in multiple units.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.nasa.gov/
+    baseURL: https://api.nasa.gov/neo/rest/v1
+    tags:
+      - NASA
+      - Asteroids
+      - Near Earth Objects
+      - NeoWs
+      - JPL
+    properties:
+      - type: Documentation
+        url: https://api.nasa.gov/
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/openapi/openapi.yml
+    contact:
+      - FN: NASA API Support
+        url: https://api.nasa.gov/
+
+common:
+
+  - type: Website
+    url: https://api.nasa.gov/
+
+  - type: Documentation
+    url: https://api.nasa.gov/
+
+  - type: GitHubOrg
+    url: https://github.com/nasa
+
+  - type: GitHubRepository
+    url: https://github.com/nasa/api-docs
+
+  - type: Pricing
+    url: https://api.nasa.gov/
+
+  - type: StatusPage
+    url: https://status.api.nasa.gov/
+
+  - type: TermsOfService
+    url: https://www.usa.gov/developer-apis
+
+  - type: SignUp
+    url: https://api.nasa.gov/#signUp
+
+  - type: Plans
+    url: plans/nasa-neows-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/nasa-neows-rate-limits.yml
+
+  - type: FinOps
+    url: finops/nasa-neows-finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

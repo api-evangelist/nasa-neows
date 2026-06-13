@@ -1,0 +1,55 @@
+name: NASA NeoWs FinOps
+description: >
+  Financial operations guidance for the NASA Near Earth Object Web Service API.
+  The API is a free public service operated by NASA on behalf of the U.S.
+  government; there are no direct monetary costs for consumers.
+url: https://api.nasa.gov/
+
+cost:
+  model: free
+  currency: USD
+  notes: >
+    The NASA NeoWs API is provided at no charge as a public government data
+    service. There are no subscription fees, per-request charges, or overage
+    fees for standard usage.
+
+considerations:
+
+  - category: Registration
+    description: >
+      Obtaining a registered API key is free and requires only a name and
+      email address at api.nasa.gov. Registration unlocks the standard
+      1,000 req/hour tier with no time limit or expiry.
+
+  - category: Rate Limit Overage
+    description: >
+      There are no financial penalties for exceeding rate limits. Requests
+      beyond the hourly threshold are simply blocked until the rolling window
+      resets. No overage billing occurs.
+
+  - category: Data Volume
+    description: >
+      NeoWs response payloads can be sizable for the browse endpoint (full
+      dataset) and multi-day feed requests. Applications serving many users
+      should account for downstream egress costs on their own hosting
+      infrastructure when caching or re-serving API data.
+
+  - category: Third-Party Wrappers
+    description: >
+      Several commercial API aggregators and management platforms re-expose
+      NASA APIs and may impose their own pricing. Always verify whether a
+      wrapper or the official api.nasa.gov endpoint is being used.
+
+  - category: Self-Hosting
+    description: >
+      NASA publishes open-source code and data on GitHub (github.com/nasa).
+      Teams requiring guaranteed SLAs or higher throughput can operate their
+      own infrastructure; compute, storage, and egress costs on the chosen
+      cloud provider would then apply.
+
+optimization:
+  - tip: Register for a free API key immediately to avoid the 30 req/hour DEMO_KEY ceiling.
+  - tip: Use the feed endpoint with a full 7-day window rather than daily calls to minimize request count.
+  - tip: Cache browse and lookup responses; asteroid orbital data changes infrequently.
+  - tip: Monitor X-RateLimit-Remaining response headers to implement client-side throttling before hitting the 1,000 req/hour cap.
+  - tip: Paginate browse results deliberately and cache pages server-side to avoid re-fetching unchanged data.

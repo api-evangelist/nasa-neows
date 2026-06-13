@@ -1,0 +1,54 @@
+name: NASA NeoWs Plans and Pricing
+description: Pricing and access plans for the NASA Near Earth Object Web Service API.
+url: https://api.nasa.gov/
+plans:
+
+  - name: DEMO_KEY
+    description: >
+      No-signup demo access using the shared DEMO_KEY for quick exploration of
+      the NeoWs API. Suitable for testing and evaluation only; limits apply
+      per originating IP address.
+    url: https://api.nasa.gov/
+    free: true
+    rateLimit:
+      requests: 30
+      period: hour
+      unit: IP address
+    dailyLimit:
+      requests: 50
+      period: day
+      unit: IP address
+    features:
+      - Access to all three NeoWs endpoints (feed, lookup, browse)
+      - No registration required
+      - Shared key across all demo users
+
+  - name: Registered Free
+    description: >
+      Free API key obtained by registering at api.nasa.gov. Provides
+      significantly higher rate limits suitable for most application and
+      research use cases. The key applies across all NASA Open APIs.
+    url: https://api.nasa.gov/#signUp
+    free: true
+    rateLimit:
+      requests: 1000
+      period: hour
+      unit: API key
+    features:
+      - Access to all NeoWs endpoints (feed, lookup, browse)
+      - 1,000 requests per hour per API key
+      - Rolling hourly counter reset
+      - X-RateLimit-Limit and X-RateLimit-Remaining response headers
+      - No cost — public government data service
+
+  - name: Higher Limits
+    description: >
+      Custom rate limit arrangements are available by contacting NASA directly
+      for applications or research projects requiring throughput beyond the
+      standard 1,000 requests per hour.
+    url: https://api.nasa.gov/
+    free: true
+    custom: true
+    features:
+      - Negotiated limits based on use case
+      - Contact NASA via api.nasa.gov for availability

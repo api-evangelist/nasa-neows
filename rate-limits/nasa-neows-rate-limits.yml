@@ -1,0 +1,52 @@
+name: NASA NeoWs Rate Limits
+description: Rate limiting details for the NASA Near Earth Object Web Service API.
+url: https://api.nasa.gov/
+
+limits:
+
+  - plan: DEMO_KEY
+    type: hourly
+    requests: 30
+    period: hour
+    scope: IP address
+    notes: >
+      The DEMO_KEY is shared across all unauthenticated users. Limits are
+      applied per originating IP address rather than per key.
+
+  - plan: DEMO_KEY
+    type: daily
+    requests: 50
+    period: day
+    scope: IP address
+    notes: >
+      Daily ceiling for DEMO_KEY access, enforced per originating IP address.
+      The hourly limit (30) will be reached before the daily cap (50) for
+      sustained usage.
+
+  - plan: Registered Free
+    type: hourly
+    requests: 1000
+    period: hour
+    scope: API key
+    notes: >
+      Limits apply across all api.nasa.gov API calls made with the same
+      registered key, not solely NeoWs requests. The feed endpoint is further
+      constrained to a maximum 7-day date range per request.
+
+constraints:
+  - The feed endpoint accepts a maximum date range of 7 days per request.
+  - Requests outside the 7-day window are rejected with a 400 Bad Request.
+  - The browse endpoint is paginated; each page counts as one request.
+
+enforcement:
+  description: >
+    Exceeding rate limits results in a temporary block on the API key or IP
+    address. Blocks are lifted automatically on a rolling hourly basis.
+  headers:
+    - X-RateLimit-Limit
+    - X-RateLimit-Remaining
+  block_duration: 1 hour (rolling)
+
+contact:
+  description: Organizations requiring higher limits may contact NASA.
+  url: https://api.nasa.gov/
