@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/json-schema/near-earth-object.json",
+  "title": "NearEarthObject",
+  "description": "A near Earth asteroid record from the NASA JPL NeoWs dataset.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Internal identifier."
+    },
+    "neo_reference_id": {
+      "type": "string",
+      "description": "NASA JPL small body reference ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Common name of the asteroid."
+    },
+    "name_limited": {
+      "type": "string",
+      "description": "Short version of the asteroid name."
+    },
+    "designation": {
+      "type": "string",
+      "description": "Minor planet designation."
+    },
+    "nasa_jpl_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the JPL Small-Body Database entry."
+    },
+    "absolute_magnitude_h": {
+      "type": "number",
+      "description": "Absolute magnitude (H) — a measure of intrinsic brightness."
+    },
+    "estimated_diameter": {
+      "$ref": "#/$defs/EstimatedDiameter"
+    },
+    "is_potentially_hazardous_asteroid": {
+      "type": "boolean",
+      "description": "Whether this NEO is classified as potentially hazardous."
+    },
+    "is_sentry_object": {
+      "type": "boolean",
+      "description": "Whether this object is tracked by the Sentry impact monitoring system."
+    },
+    "close_approach_data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CloseApproach"
+      }
+    },
+    "orbital_data": {
+      "$ref": "#/$defs/OrbitalData"
+    }
+  },
+  "$defs": {
+    "EstimatedDiameter": {
+      "type": "object",
+      "description": "Estimated diameter in multiple units.",
+      "properties": {
+        "kilometers": { "$ref": "#/$defs/DiameterRange" },
+        "meters": { "$ref": "#/$defs/DiameterRange" },
+        "miles": { "$ref": "#/$defs/DiameterRange" },
+        "feet": { "$ref": "#/$defs/DiameterRange" }
+      }
+    },
+    "DiameterRange": {
+      "type": "object",
+      "description": "Min/max estimated diameter in a given unit.",
+      "properties": {
+        "estimated_diameter_min": { "type": "number" },
+        "estimated_diameter_max": { "type": "number" }
+      },
+      "required": ["estimated_diameter_min", "estimated_diameter_max"]
+    },
+    "CloseApproach": {
+      "type": "object",
+      "description": "A single close-approach event for the asteroid.",
+      "properties": {
+        "close_approach_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of closest approach (YYYY-MM-DD)."
+        },
+        "close_approach_date_full": {
+          "type": "string",
+          "description": "Full date and time of closest approach."
+        },
+        "epoch_date_close_approach": {
+          "type": "integer",
+          "description": "Unix epoch timestamp of closest approach."
+        },
+        "orbiting_body": {
+          "type": "string",
+          "description": "The body being orbited (e.g., Earth, Venus, Mars)."
+        },
+        "relative_velocity": {
+          "type": "object",
+          "properties": {
+            "kilometers_per_second": { "type": "string" },
+            "kilometers_per_hour": { "type": "string" },
+            "miles_per_hour": { "type": "string" }
+          }
+        },
+        "miss_distance": {
+          "type": "object",
+          "properties": {
+            "astronomical": { "type": "string" },
+            "lunar": { "type": "string" },
+            "kilometers": { "type": "string" },
+            "miles": { "type": "string" }
+          }
+        }
+      }
+    },
+    "OrbitalData": {
+      "type": "object",
+      "description": "Orbital mechanics parameters from JPL.",
+      "properties": {
+        "orbit_id": { "type": "string" },
+        "orbit_determination_date": { "type": "string" },
+        "first_observation_date": { "type": "string", "format": "date" },
+        "last_observation_date": { "type": "string", "format": "date" },
+        "data_arc_in_days": { "type": "integer" },
+        "observations_used": { "type": "integer" },
+        "orbit_uncertainty": { "type": "string" },
+        "minimum_orbit_intersection": { "type": "string" },
+        "jupiter_tisserand_invariant": { "type": "string" },
+        "epoch_osculation": { "type": "string" },
+        "eccentricity": { "type": "string" },
+        "semi_major_axis": { "type": "string" },
+        "inclination": { "type": "string" },
+        "ascending_node_longitude": { "type": "string" },
+        "orbital_period": { "type": "string" },
+        "perihelion_distance": { "type": "string" },
+        "perihelion_argument": { "type": "string" },
+        "aphelion_distance": { "type": "string" },
+        "perihelion_time": { "type": "string" },
+        "mean_anomaly": { "type": "string" },
+        "mean_motion": { "type": "string" },
+        "equinox": { "type": "string" },
+        "orbit_class": {
+          "type": "object",
+          "properties": {
+            "orbit_class_type": { "type": "string" },
+            "orbit_class_description": { "type": "string" },
+            "orbit_class_range": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

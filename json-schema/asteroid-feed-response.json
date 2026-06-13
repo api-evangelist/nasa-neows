@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/json-schema/asteroid-feed-response.json",
+  "title": "AsteroidFeedResponse",
+  "description": "Response from GET /feed — asteroids by closest approach date range.",
+  "type": "object",
+  "properties": {
+    "links": {
+      "type": "object",
+      "properties": {
+        "next": { "type": "string", "format": "uri" },
+        "previous": { "type": "string", "format": "uri" },
+        "self": { "type": "string", "format": "uri" }
+      }
+    },
+    "element_count": {
+      "type": "integer",
+      "description": "Total number of asteroids in the response."
+    },
+    "near_earth_objects": {
+      "type": "object",
+      "description": "Asteroid records keyed by close-approach date (YYYY-MM-DD). Each value is an array of NearEarthObject records.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "near-earth-object.json"
+        }
+      }
+    }
+  },
+  "required": ["element_count", "near_earth_objects"]
+}

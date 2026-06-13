@@ -1,0 +1,73 @@
+{
+  "summary": "GET /feed — asteroid close-approach feed for a 7-day window",
+  "request": {
+    "method": "GET",
+    "url": "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-14&api_key=DEMO_KEY"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "links": {
+        "next": "http://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-08&end_date=2015-09-15&detailed=false&api_key=DEMO_KEY",
+        "previous": "http://api.nasa.gov/neo/rest/v1/feed?start_date=2015-08-31&end_date=2015-09-07&detailed=false&api_key=DEMO_KEY",
+        "self": "http://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-14&detailed=false&api_key=DEMO_KEY"
+      },
+      "element_count": 2,
+      "near_earth_objects": {
+        "2015-09-08": [
+          {
+            "id": "2465633",
+            "neo_reference_id": "2465633",
+            "name": "465633 (2009 JR5)",
+            "name_limited": "465633",
+            "designation": "465633",
+            "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=2465633",
+            "absolute_magnitude_h": 20.36,
+            "estimated_diameter": {
+              "kilometers": {
+                "estimated_diameter_min": 0.1981015754,
+                "estimated_diameter_max": 0.4429938603
+              },
+              "meters": {
+                "estimated_diameter_min": 198.1015754,
+                "estimated_diameter_max": 442.9938603
+              },
+              "miles": {
+                "estimated_diameter_min": 0.1230715618,
+                "estimated_diameter_max": 0.2752977006
+              },
+              "feet": {
+                "estimated_diameter_min": 649.9395128,
+                "estimated_diameter_max": 1453.0638748
+              }
+            },
+            "is_potentially_hazardous_asteroid": true,
+            "is_sentry_object": false,
+            "close_approach_data": [
+              {
+                "close_approach_date": "2015-09-08",
+                "close_approach_date_full": "2015-Sep-08 20:28",
+                "epoch_date_close_approach": 1441744080000,
+                "orbiting_body": "Earth",
+                "relative_velocity": {
+                  "kilometers_per_second": "17.8743831928",
+                  "kilometers_per_hour": "64347.7795141",
+                  "miles_per_hour": "39974.1870736"
+                },
+                "miss_distance": {
+                  "astronomical": "0.3027469592",
+                  "lunar": "117.768...9208",
+                  "kilometers": "45290298.225",
+                  "miles": "28146982.6651"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

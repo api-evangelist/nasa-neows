@@ -1,0 +1,90 @@
+{
+  "title": "NASA NeoWs Vocabulary",
+  "description": "Controlled vocabulary of key terms used in the NASA Near Earth Object Web Service (NeoWs) API.",
+  "source": "https://api.nasa.gov/",
+  "terms": [
+    {
+      "term": "Near Earth Object",
+      "abbreviation": "NEO",
+      "definition": "An asteroid or comet whose orbit brings it into proximity with Earth (within 1.3 astronomical units of the Sun). The primary subject of the NeoWs API dataset."
+    },
+    {
+      "term": "Potentially Hazardous Asteroid",
+      "abbreviation": "PHA",
+      "definition": "An asteroid with a minimum orbit intersection distance (MOID) of 0.05 AU or less AND an absolute magnitude (H) of 22.0 or brighter. PHAs are flagged via is_potentially_hazardous_asteroid."
+    },
+    {
+      "term": "SPK-ID",
+      "abbreviation": "SPK-ID",
+      "definition": "Small-Body Primary Key identifier assigned by the NASA JPL Small-Body Database. Used as the primary asteroid identifier (neo_reference_id) in NeoWs."
+    },
+    {
+      "term": "Absolute Magnitude",
+      "abbreviation": "H",
+      "definition": "A measure of an asteroid's intrinsic brightness. Lower H values indicate a larger or more reflective object. The field absolute_magnitude_h carries this value."
+    },
+    {
+      "term": "Close Approach",
+      "definition": "An event where an asteroid passes within a defined proximity to Earth (or another solar-system body). Each NearEarthObject record includes a close_approach_data array."
+    },
+    {
+      "term": "Miss Distance",
+      "definition": "The distance between the asteroid and the orbiting body at the moment of closest approach, expressed in astronomical units, lunar distances, kilometers, and miles."
+    },
+    {
+      "term": "Relative Velocity",
+      "definition": "The speed of the asteroid relative to Earth at closest approach, expressed in km/s, km/h, and mph via the relative_velocity object."
+    },
+    {
+      "term": "Sentry Object",
+      "definition": "An asteroid tracked by the JPL Sentry impact monitoring system as having a non-negligible chance of Earth impact within the next 100 years. Indicated by is_sentry_object."
+    },
+    {
+      "term": "Orbital Period",
+      "definition": "The time in days required for an asteroid to complete one full orbit around the Sun. Stored as orbital_data.orbital_period."
+    },
+    {
+      "term": "Semi-Major Axis",
+      "definition": "Half the length of the longest axis of the elliptical orbit, expressed in astronomical units. Stored as orbital_data.semi_major_axis."
+    },
+    {
+      "term": "Eccentricity",
+      "definition": "A measure of how circular or elongated an orbit is (0 = perfect circle, <1 = ellipse). Stored as orbital_data.eccentricity."
+    },
+    {
+      "term": "Perihelion",
+      "definition": "The point in an asteroid's orbit closest to the Sun. Captured in orbital_data.perihelion_distance (AU), orbital_data.perihelion_argument, and orbital_data.perihelion_time."
+    },
+    {
+      "term": "Aphelion",
+      "definition": "The point in an asteroid's orbit farthest from the Sun. Captured in orbital_data.aphelion_distance (AU)."
+    },
+    {
+      "term": "Jupiter Tisserand Invariant",
+      "definition": "A nearly conserved quantity used to classify small bodies by their orbital relationship with Jupiter. Stored as orbital_data.jupiter_tisserand_invariant."
+    },
+    {
+      "term": "Minimum Orbit Intersection Distance",
+      "abbreviation": "MOID",
+      "definition": "The closest distance between the osculating orbits of two objects. Stored as orbital_data.minimum_orbit_intersection; critical for PHA classification."
+    },
+    {
+      "term": "Orbit Class",
+      "definition": "Classification of an asteroid's orbit type (e.g., Apollo, Amor, Aten, Atira). Stored in orbital_data.orbit_class with type, description, and range sub-fields."
+    },
+    {
+      "term": "Astronomical Unit",
+      "abbreviation": "AU",
+      "definition": "The mean distance from the Earth to the Sun (~149,597,870.7 km). Used as a distance unit throughout NeoWs for miss distances and orbital parameters."
+    },
+    {
+      "term": "Lunar Distance",
+      "abbreviation": "LD",
+      "definition": "The mean distance from the Earth to the Moon (~384,400 km). Used alongside AU as an intuitive miss-distance unit in close_approach_data."
+    },
+    {
+      "term": "DEMO_KEY",
+      "definition": "A public NASA API key with reduced rate limits (30 requests/hour, 50/day) that can be used without registration for testing NeoWs endpoints."
+    }
+  ]
+}

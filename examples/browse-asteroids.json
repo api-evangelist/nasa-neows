@@ -1,0 +1,57 @@
+{
+  "summary": "GET /neo/browse — paginated browse of the full NEO dataset",
+  "request": {
+    "method": "GET",
+    "url": "https://api.nasa.gov/neo/rest/v1/neo/browse?page=0&size=2&api_key=DEMO_KEY"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "links": {
+        "next": "http://api.nasa.gov/neo/rest/v1/neo/browse?page=1&size=2&api_key=DEMO_KEY",
+        "self": "http://api.nasa.gov/neo/rest/v1/neo/browse?page=0&size=2&api_key=DEMO_KEY"
+      },
+      "page": {
+        "size": 2,
+        "total_elements": 32802,
+        "total_pages": 16401,
+        "number": 0
+      },
+      "near_earth_objects": [
+        {
+          "id": "2000433",
+          "neo_reference_id": "2000433",
+          "name": "433 Eros (A898 PA)",
+          "name_limited": "433 Eros",
+          "designation": "433",
+          "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=2000433",
+          "absolute_magnitude_h": 10.31,
+          "estimated_diameter": {
+            "kilometers": {
+              "estimated_diameter_min": 22.0113250266,
+              "estimated_diameter_max": 49.2082432779
+            },
+            "meters": {
+              "estimated_diameter_min": 22011.3250266,
+              "estimated_diameter_max": 49208.2432779
+            },
+            "miles": {
+              "estimated_diameter_min": 13.6777556085,
+              "estimated_diameter_max": 30.5793658109
+            },
+            "feet": {
+              "estimated_diameter_min": 72214.3341018,
+              "estimated_diameter_max": 161443.3839641
+            }
+          },
+          "is_potentially_hazardous_asteroid": false,
+          "is_sentry_object": false,
+          "close_approach_data": []
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "nasa": "https://api.nasa.gov/neo/rest/v1/",
+    "neows": "https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/json-ld/",
+
+    "NearEarthObject": "neows:NearEarthObject",
+    "AsteroidFeedResponse": "neows:AsteroidFeedResponse",
+    "AsteroidBrowseResponse": "neows:AsteroidBrowseResponse",
+    "CloseApproach": "neows:CloseApproach",
+    "OrbitalData": "neows:OrbitalData",
+    "EstimatedDiameter": "neows:EstimatedDiameter",
+    "DiameterRange": "neows:DiameterRange",
+
+    "id": "@id",
+    "neo_reference_id": {
+      "@id": "neows:neo_reference_id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "name_limited": {
+      "@id": "neows:name_limited",
+      "@type": "xsd:string"
+    },
+    "designation": {
+      "@id": "neows:designation",
+      "@type": "xsd:string"
+    },
+    "nasa_jpl_url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "absolute_magnitude_h": {
+      "@id": "neows:absolute_magnitude_h",
+      "@type": "xsd:decimal"
+    },
+    "estimated_diameter": {
+      "@id": "neows:estimated_diameter",
+      "@type": "@id"
+    },
+    "is_potentially_hazardous_asteroid": {
+      "@id": "neows:is_potentially_hazardous_asteroid",
+      "@type": "xsd:boolean"
+    },
+    "is_sentry_object": {
+      "@id": "neows:is_sentry_object",
+      "@type": "xsd:boolean"
+    },
+    "close_approach_data": {
+      "@id": "neows:close_approach_data",
+      "@container": "@set"
+    },
+    "orbital_data": {
+      "@id": "neows:orbital_data",
+      "@type": "@id"
+    },
+
+    "close_approach_date": {
+      "@id": "neows:close_approach_date",
+      "@type": "xsd:date"
+    },
+    "close_approach_date_full": {
+      "@id": "neows:close_approach_date_full",
+      "@type": "xsd:string"
+    },
+    "epoch_date_close_approach": {
+      "@id": "neows:epoch_date_close_approach",
+      "@type": "xsd:long"
+    },
+    "orbiting_body": {
+      "@id": "neows:orbiting_body",
+      "@type": "xsd:string"
+    },
+    "relative_velocity": {
+      "@id": "neows:relative_velocity",
+      "@type": "@id"
+    },
+    "miss_distance": {
+      "@id": "neows:miss_distance",
+      "@type": "@id"
+    },
+    "kilometers_per_second": {
+      "@id": "neows:kilometers_per_second",
+      "@type": "xsd:string"
+    },
+    "kilometers_per_hour": {
+      "@id": "neows:kilometers_per_hour",
+      "@type": "xsd:string"
+    },
+    "miles_per_hour": {
+      "@id": "neows:miles_per_hour",
+      "@type": "xsd:string"
+    },
+    "astronomical": {
+      "@id": "neows:miss_distance_astronomical",
+      "@type": "xsd:string"
+    },
+    "lunar": {
+      "@id": "neows:miss_distance_lunar",
+      "@type": "xsd:string"
+    },
+    "kilometers": {
+      "@id": "neows:miss_distance_kilometers",
+      "@type": "xsd:string"
+    },
+    "miles": {
+      "@id": "neows:miss_distance_miles",
+      "@type": "xsd:string"
+    },
+
+    "element_count": {
+      "@id": "neows:element_count",
+      "@type": "xsd:integer"
+    },
+    "near_earth_objects": {
+      "@id": "neows:near_earth_objects"
+    },
+    "links": {
+      "@id": "neows:links",
+      "@type": "@id"
+    },
+    "page": {
+      "@id": "neows:page",
+      "@type": "@id"
+    },
+
+    "orbit_id": { "@id": "neows:orbit_id" },
+    "orbit_determination_date": { "@id": "neows:orbit_determination_date" },
+    "first_observation_date": { "@id": "neows:first_observation_date", "@type": "xsd:date" },
+    "last_observation_date": { "@id": "neows:last_observation_date", "@type": "xsd:date" },
+    "data_arc_in_days": { "@id": "neows:data_arc_in_days", "@type": "xsd:integer" },
+    "observations_used": { "@id": "neows:observations_used", "@type": "xsd:integer" },
+    "orbit_uncertainty": { "@id": "neows:orbit_uncertainty" },
+    "minimum_orbit_intersection": { "@id": "neows:minimum_orbit_intersection" },
+    "jupiter_tisserand_invariant": { "@id": "neows:jupiter_tisserand_invariant" },
+    "eccentricity": { "@id": "neows:eccentricity" },
+    "semi_major_axis": { "@id": "neows:semi_major_axis" },
+    "inclination": { "@id": "neows:inclination" },
+    "ascending_node_longitude": { "@id": "neows:ascending_node_longitude" },
+    "orbital_period": { "@id": "neows:orbital_period" },
+    "perihelion_distance": { "@id": "neows:perihelion_distance" },
+    "perihelion_argument": { "@id": "neows:perihelion_argument" },
+    "aphelion_distance": { "@id": "neows:aphelion_distance" },
+    "perihelion_time": { "@id": "neows:perihelion_time" },
+    "mean_anomaly": { "@id": "neows:mean_anomaly" },
+    "mean_motion": { "@id": "neows:mean_motion" },
+    "equinox": { "@id": "neows:equinox" },
+    "orbit_class": { "@id": "neows:orbit_class" },
+    "orbit_class_type": { "@id": "neows:orbit_class_type" },
+    "orbit_class_description": { "@id": "neows:orbit_class_description" },
+    "orbit_class_range": { "@id": "neows:orbit_class_range" }
+  }
+}
