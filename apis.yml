@@ -6,7 +6,7 @@ description: >
   closest approach date to Earth, look up a specific asteroid by NASA JPL small
   body (SPK-ID), and browse the overall dataset. Data originates from the NASA
   JPL Asteroid team and is maintained by the SpaceRocks Team.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -32,7 +32,7 @@ apis:
       paginated browse of the complete NEO dataset. Each asteroid record includes
       estimated diameter, hazardous classification, orbital data, relative
       velocity, and miss distances in multiple units.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://api.nasa.gov/
     baseURL: https://api.nasa.gov/neo/rest/v1
     tags:
