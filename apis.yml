@@ -73,7 +73,7 @@ common:
   - type: TermsOfService
     url: https://www.usa.gov/developer-apis
 
-  - type: SignUp
+  - type: Signup
     url: https://api.nasa.gov/#signUp
 
   - type: Plans
