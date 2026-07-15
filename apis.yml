@@ -52,6 +52,8 @@ apis:
 
 common:
 
+  - type: AgenticAccess
+    url: agentic-access/nasa-neows-agentic-access.yml
   - type: DomainSecurity
     url: security/nasa-neows-domain-security.yml
   - type: Authentication
