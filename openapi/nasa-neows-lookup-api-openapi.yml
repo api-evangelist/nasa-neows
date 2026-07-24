@@ -1,0 +1,215 @@
+openapi: 3.0.3
+info:
+  title: NASA NeoWs - Near Earth Object Web Service Browse Lookup API
+  description: 'NASA Near Earth Object Web Service (NeoWs) REST API for searching and browsing near Earth asteroid information. Users can search for asteroids based on their closest approach date to Earth, look up a specific asteroid by NASA JPL small body (SPK-ID), and browse the overall dataset. Data originates from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). Maintained by the SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English, and Peter Baunach.
+
+    '
+  version: 1.0.0
+  contact:
+    name: NASA API Support
+    url: https://api.nasa.gov/
+  license:
+    name: U.S. Government Public Domain
+    url: https://www.usa.gov/developer-apis
+servers:
+- url: https://api.nasa.gov/neo/rest/v1
+  description: NASA NeoWs production server
+security:
+- ApiKeyQuery: []
+tags:
+- name: Lookup
+paths:
+  /neo/{asteroidId}:
+    get:
+      operationId: lookupAsteroid
+      summary: Lookup a specific asteroid by SPK-ID
+      description: 'Retrieves detailed information for a specific near Earth object using its NASA JPL small body (SPK-ID) identifier.
+
+        '
+      tags:
+      - Lookup
+      parameters:
+      - name: asteroidId
+        in: path
+        required: true
+        description: NASA JPL small body (SPK-ID) for the asteroid.
+        schema:
+          type: integer
+          example: 3542519
+      - name: api_key
+        in: query
+        required: false
+        description: NASA API key. Defaults to DEMO_KEY if omitted.
+        schema:
+          type: string
+          default: DEMO_KEY
+      responses:
+        '200':
+          description: Successful response with asteroid detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NearEarthObject'
+        '404':
+          description: Asteroid not found for the given SPK-ID.
+        '403':
+          description: Rate limit exceeded or invalid API key.
+components:
+  schemas:
+    OrbitalData:
+      type: object
+      description: Orbital mechanics parameters from JPL.
+      properties:
+        orbit_id:
+          type: string
+        orbit_determination_date:
+          type: string
+        first_observation_date:
+          type: string
+          format: date
+        last_observation_date:
+          type: string
+          format: date
+        data_arc_in_days:
+          type: integer
+        observations_used:
+          type: integer
+        orbit_uncertainty:
+          type: string
+        minimum_orbit_intersection:
+          type: string
+        jupiter_tisserand_invariant:
+          type: string
+        epoch_osculation:
+          type: string
+        eccentricity:
+          type: string
+        semi_major_axis:
+          type: string
+        inclination:
+          type: string
+        ascending_node_longitude:
+          type: string
+        orbital_period:
+          type: string
+        perihelion_distance:
+          type: string
+        perihelion_argument:
+          type: string
+        aphelion_distance:
+          type: string
+        perihelion_time:
+          type: string
+        mean_anomaly:
+          type: string
+        mean_motion:
+          type: string
+        equinox:
+          type: string
+        orbit_class:
+          type: object
+          properties:
+            orbit_class_type:
+              type: string
+            orbit_class_description:
+              type: string
+            orbit_class_range:
+              type: string
+    CloseApproach:
+      type: object
+      properties:
+        close_approach_date:
+          type: string
+          format: date
+          description: Date of closest approach (YYYY-MM-DD).
+        close_approach_date_full:
+          type: string
+          description: Full date and time of closest approach.
+        epoch_date_close_approach:
+          type: integer
+          description: Unix epoch timestamp of closest approach.
+        orbiting_body:
+          type: string
+          description: The body being orbited (e.g., Earth, Venus, Mars).
+        relative_velocity:
+          type: object
+          properties:
+            kilometers_per_second:
+              type: string
+            kilometers_per_hour:
+              type: string
+            miles_per_hour:
+              type: string
+        miss_distance:
+          type: object
+          properties:
+            astronomical:
+              type: string
+            lunar:
+              type: string
+            kilometers:
+              type: string
+            miles:
+              type: string
+    NearEarthObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Internal identifier.
+        neo_reference_id:
+          type: string
+          description: NASA JPL small body reference ID.
+        name:
+          type: string
+          description: Common name of the asteroid.
+        name_limited:
+          type: string
+          description: Short version of the asteroid name.
+        designation:
+          type: string
+          description: Minor planet designation.
+        nasa_jpl_url:
+          type: string
+          format: uri
+          description: URL to the JPL Small-Body Database entry.
+        absolute_magnitude_h:
+          type: number
+          description: Absolute magnitude (H) — a measure of intrinsic brightness.
+        estimated_diameter:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        is_potentially_hazardous_asteroid:
+          type: boolean
+          description: Whether this NEO is classified as potentially hazardous.
+        is_sentry_object:
+          type: boolean
+          description: Whether this object is tracked by the Sentry impact monitoring system.
+        close_approach_data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CloseApproach'
+        orbital_data:
+          $ref: '#/components/schemas/OrbitalData'
+    DiameterRange:
+      type: object
+      properties:
+        estimated_diameter_min:
+          type: number
+        estimated_diameter_max:
+          type: number
+    EstimatedDiameter:
+      type: object
+      properties:
+        kilometers:
+          $ref: '#/components/schemas/DiameterRange'
+        meters:
+          $ref: '#/components/schemas/DiameterRange'
+        miles:
+          $ref: '#/components/schemas/DiameterRange'
+        feet:
+          $ref: '#/components/schemas/DiameterRange'
+  securitySchemes:
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: api_key
