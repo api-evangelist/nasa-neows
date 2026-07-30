@@ -6,7 +6,20 @@ description: >
   closest approach date to Earth, look up a specific asteroid by NASA JPL small
   body (SPK-ID), and browse the overall dataset. Data originates from the NASA
   JPL Asteroid team and is maintained by the SpaceRocks Team.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nasa-neows.png
 url: https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -22,34 +35,42 @@ tags:
   - Planetary Defense
 
 apis:
-
-  - aid: nasa-neows:nasa-neows
-    name: NASA NeoWs API
-    description: >
-      RESTful web service providing near Earth asteroid information from the NASA
-      JPL Asteroid team. Exposes three endpoints: a date-range feed of close
-      approach events (max 7-day window), a per-asteroid lookup by SPK-ID, and a
-      paginated browse of the complete NEO dataset. Each asteroid record includes
-      estimated diameter, hazardous classification, orbital data, relative
-      velocity, and miss distances in multiple units.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://api.nasa.gov/
-    baseURL: https://api.nasa.gov/neo/rest/v1
-    tags:
-      - NASA
-      - Asteroids
-      - Near Earth Objects
-      - NeoWs
-      - JPL
-    properties:
-      - type: Documentation
-        url: https://api.nasa.gov/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/nasa-neows/refs/heads/main/openapi/openapi.yml
-    contact:
-      - FN: NASA API Support
-        url: https://api.nasa.gov/
-
+- aid: nasa-neows:nasa-neows-browse-api
+  name: NASA NeoWs Browse API
+  description: The Browse API from NASA NeoWs — 1 operation(s) for browse.
+  humanURL: https://api.nasa.gov/
+  baseURL: https://api.nasa.gov/neo/rest/v1
+  tags:
+  - Browse
+  properties:
+  - type: OpenAPI
+    url: openapi/nasa-neows-browse-api-openapi.yml
+  - type: Documentation
+    url: https://api.nasa.gov/
+- aid: nasa-neows:nasa-neows-feed-api
+  name: NASA NeoWs Feed API
+  description: The Feed API from NASA NeoWs — 1 operation(s) for feed.
+  humanURL: https://api.nasa.gov/
+  baseURL: https://api.nasa.gov/neo/rest/v1
+  tags:
+  - Feed
+  properties:
+  - type: OpenAPI
+    url: openapi/nasa-neows-feed-api-openapi.yml
+  - type: Documentation
+    url: https://api.nasa.gov/
+- aid: nasa-neows:nasa-neows-lookup-api
+  name: NASA NeoWs Lookup API
+  description: The Lookup API from NASA NeoWs — 1 operation(s) for lookup.
+  humanURL: https://api.nasa.gov/
+  baseURL: https://api.nasa.gov/neo/rest/v1
+  tags:
+  - Lookup
+  properties:
+  - type: OpenAPI
+    url: openapi/nasa-neows-lookup-api-openapi.yml
+  - type: Documentation
+    url: https://api.nasa.gov/
 common:
 
   - type: AgenticAccess
