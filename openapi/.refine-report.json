@@ -1,0 +1,18 @@
+{
+  "provider": "nasa-neows",
+  "sources": [
+    "nasa-neows-browse-api-openapi.yml",
+    "nasa-neows-feed-api-openapi.yml",
+    "nasa-neows-lookup-api-openapi.yml"
+  ],
+  "outputs": [
+    "nasa-neows-browse-api-openapi.yml",
+    "nasa-neows-feed-api-openapi.yml",
+    "nasa-neows-lookup-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
