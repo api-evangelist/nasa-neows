@@ -73,6 +73,10 @@ apis:
     url: https://api.nasa.gov/
 common:
 
+  - type: IssueTracker
+    url: https://github.com/nasa/api-docs/issues
+  - type: ContributionGuide
+    url: https://github.com/nasa/api-docs/blob/gh-pages/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/nasa-neows-agentic-access.yml
   - type: DomainSecurity
