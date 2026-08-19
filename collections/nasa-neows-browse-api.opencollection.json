@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NASA NeoWs - Near Earth Object Web Service Browse API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Browse",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Browse the overall near Earth object dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nasa.gov/neo/rest/v1/neo/browse",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-indexed page number."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of asteroids returned per page."
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "NASA API key. Defaults to DEMO_KEY if omitted."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of all near Earth objects in the NASA dataset. Use the page and size parameters to navigate through results.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

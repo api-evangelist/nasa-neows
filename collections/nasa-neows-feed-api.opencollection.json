@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NASA NeoWs - Near Earth Object Web Service Browse Feed API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve asteroids by closest approach date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nasa.gov/neo/rest/v1/feed",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of the date range (YYYY-MM-DD format)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of the date range (YYYY-MM-DD format). Must be within 7 days of start_date. Defaults to 7 days after start_date if omitted.\n"
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "NASA API key. Defaults to DEMO_KEY if omitted."
+              }
+            ]
+          },
+          "docs": "Returns a list of asteroids based on their closest approach date to Earth within the specified date range. Maximum date range is 7 days.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

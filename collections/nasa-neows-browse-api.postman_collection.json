@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "a6d06e0f-6efd-4ae9-a331-0cdd4b9a051f",
+      "name": "Browse",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca56da2b-e120-4244-b43c-1159d09d2134",
+          "name": "Browse the overall near Earth object dataset",
+          "request": {
+            "name": "Browse the overall near Earth object dataset",
+            "description": {
+              "content": "Returns a paginated list of all near Earth objects in the NASA dataset. Use the page and size parameters to navigate through results.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "neo",
+                "browse"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-indexed page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "Number of asteroids returned per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "DEMO_KEY",
+                  "description": "NASA API key. Defaults to DEMO_KEY if omitted."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2791a792-99b7-4c39-944d-b66720175d27",
+              "name": "Successful response with paginated asteroid dataset.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "neo",
+                    "browse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "DEMO_KEY"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {\n    \"next\": \"http://JvLPVJLQnLOFueO.qyYOo1x2Ip1n.36rQGYK\",\n    \"previous\": \"https://jXMyeqIE.ctsTIsoW8nL1pBi\",\n    \"self\": \"http://sYOOyeV.iubyyYb9iCjutUoHQ1aZe\"\n  },\n  \"page\": {\n    \"size\": 1251,\n    \"total_elements\": 3064,\n    \"total_pages\": 1647,\n    \"number\": 6451\n  },\n  \"near_earth_objects\": [\n    {\n      \"id\": \"string\",\n      \"neo_reference_id\": \"string\",\n      \"name\": \"string\",\n      \"name_limited\": \"string\",\n      \"designation\": \"string\",\n      \"nasa_jpl_url\": \"https://XMvt.jexhwNqHR4qe+uXshSjv6g8wizWo3Zzrg\",\n      \"absolute_magnitude_h\": 6846.633605479406,\n      \"estimated_diameter\": {\n        \"kilometers\": {\n          \"estimated_diameter_min\": 7700.249213258874,\n          \"estimated_diameter_max\": 2812.2160163513254\n        },\n        \"meters\": {\n          \"estimated_diameter_min\": 2048.016738187336,\n          \"estimated_diameter_max\": 8013.025662413549\n        },\n        \"miles\": {\n          \"estimated_diameter_min\": 3179.5341792587083,\n          \"estimated_diameter_max\": 2464.2881518949976\n        },\n        \"feet\": {\n          \"estimated_diameter_min\": 6713.629428958069,\n          \"estimated_diameter_max\": 3274.5937716504704\n        }\n      },\n      \"is_potentially_hazardous_asteroid\": false,\n      \"is_sentry_object\": true,\n      \"close_approach_data\": [\n        {\n          \"close_approach_date\": \"1982-11-17\",\n          \"close_approach_date_full\": \"string\",\n          \"epoch_date_close_approach\": 9391,\n          \"orbiting_body\": \"string\",\n          \"relative_velocity\": {\n            \"kilometers_per_second\": \"string\",\n            \"kilometers_per_hour\": \"string\",\n            \"miles_per_hour\": \"string\"\n          },\n          \"miss_distance\": {\n            \"astronomical\": \"string\",\n            \"lunar\": \"string\",\n            \"kilometers\": \"string\",\n            \"miles\": \"string\"\n          }\n        },\n        {\n          \"close_approach_date\": \"2025-01-11\",\n          \"close_approach_date_full\": \"string\",\n          \"epoch_date_close_approach\": 4956,\n          \"orbiting_body\": \"string\",\n          \"relative_velocity\": {\n            \"kilometers_per_second\": \"string\",\n            \"kilometers_per_hour\": \"string\",\n            \"miles_per_hour\": \"string\"\n          },\n          \"miss_distance\": {\n            \"astronomical\": \"string\",\n            \"lunar\": \"string\",\n            \"kilometers\": \"string\",\n            \"miles\": \"string\"\n          }\n        }\n      ],\n      \"orbital_data\": {\n        \"orbit_id\": \"string\",\n        \"orbit_determination_date\": \"string\",\n        \"first_observation_date\": \"1992-05-05\",\n        \"last_observation_date\": \"1959-09-27\",\n        \"data_arc_in_days\": 6329,\n        \"observations_used\": 4574,\n        \"orbit_uncertainty\": \"string\",\n        \"minimum_orbit_intersection\": \"string\",\n        \"jupiter_tisserand_invariant\": \"string\",\n        \"epoch_osculation\": \"string\",\n        \"eccentricity\": \"string\",\n        \"semi_major_axis\": \"string\",\n        \"inclination\": \"string\",\n        \"ascending_node_longitude\": \"string\",\n        \"orbital_period\": \"string\",\n        \"perihelion_distance\": \"string\",\n        \"perihelion_argument\": \"string\",\n        \"aphelion_distance\": \"string\",\n        \"perihelion_time\": \"string\",\n        \"mean_anomaly\": \"string\",\n        \"mean_motion\": \"string\",\n        \"equinox\": \"string\",\n        \"orbit_class\": {\n          \"orbit_class_type\": \"string\",\n          \"orbit_class_description\": \"string\",\n          \"orbit_class_range\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"neo_reference_id\": \"string\",\n      \"name\": \"string\",\n      \"name_limited\": \"string\",\n      \"designation\": \"string\",\n      \"nasa_jpl_url\": \"http://snAziBKK.vdDhIlzkQ4KjEuxJn.pAlgK63Vci.MoC9IQaIeXTElbEUgG2FKvs1vfS8Qsv1H5nTvRLlM\",\n      \"absolute_magnitude_h\": 4035.3551044512524,\n      \"estimated_diameter\": {\n        \"kilometers\": {\n          \"estimated_diameter_min\": 7478.825497804153,\n          \"estimated_diameter_max\": 5250.1800131899945\n        },\n        \"meters\": {\n          \"estimated_diameter_min\": 233.89856517307294,\n          \"estimated_diameter_max\": 5441.695893612569\n        },\n        \"miles\": {\n          \"estimated_diameter_min\": 4247.0480602410535,\n          \"estimated_diameter_max\": 2653.031036618253\n        },\n        \"feet\": {\n          \"estimated_diameter_min\": 5735.316612725538,\n          \"estimated_diameter_max\": 3240.211992848567\n        }\n      },\n      \"is_potentially_hazardous_asteroid\": false,\n      \"is_sentry_object\": false,\n      \"close_approach_data\": [\n        {\n          \"close_approach_date\": \"1981-05-24\",\n          \"close_approach_date_full\": \"string\",\n          \"epoch_date_close_approach\": 1668,\n          \"orbiting_body\": \"string\",\n          \"relative_velocity\": {\n            \"kilometers_per_second\": \"string\",\n            \"kilometers_per_hour\": \"string\",\n            \"miles_per_hour\": \"string\"\n          },\n          \"miss_distance\": {\n            \"astronomical\": \"string\",\n            \"lunar\": \"string\",\n            \"kilometers\": \"string\",\n            \"miles\": \"string\"\n          }\n        },\n        {\n          \"close_approach_date\": \"1954-07-24\",\n          \"close_approach_date_full\": \"string\",\n          \"epoch_date_close_approach\": 5831,\n          \"orbiting_body\": \"string\",\n          \"relative_velocity\": {\n            \"kilometers_per_second\": \"string\",\n            \"kilometers_per_hour\": \"string\",\n            \"miles_per_hour\": \"string\"\n          },\n          \"miss_distance\": {\n            \"astronomical\": \"string\",\n            \"lunar\": \"string\",\n            \"kilometers\": \"string\",\n            \"miles\": \"string\"\n          }\n        }\n      ],\n      \"orbital_data\": {\n        \"orbit_id\": \"string\",\n        \"orbit_determination_date\": \"string\",\n        \"first_observation_date\": \"1959-11-03\",\n        \"last_observation_date\": \"2019-05-11\",\n        \"data_arc_in_days\": 2148,\n        \"observations_used\": 5727,\n        \"orbit_uncertainty\": \"string\",\n        \"minimum_orbit_intersection\": \"string\",\n        \"jupiter_tisserand_invariant\": \"string\",\n        \"epoch_osculation\": \"string\",\n        \"eccentricity\": \"string\",\n        \"semi_major_axis\": \"string\",\n        \"inclination\": \"string\",\n        \"ascending_node_longitude\": \"string\",\n        \"orbital_period\": \"string\",\n        \"perihelion_distance\": \"string\",\n        \"perihelion_argument\": \"string\",\n        \"aphelion_distance\": \"string\",\n        \"perihelion_time\": \"string\",\n        \"mean_anomaly\": \"string\",\n        \"mean_motion\": \"string\",\n        \"equinox\": \"string\",\n        \"orbit_class\": {\n          \"orbit_class_type\": \"string\",\n          \"orbit_class_description\": \"string\",\n          \"orbit_class_range\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25cd9b6d-59d0-44b5-91b3-d5ac57a97208",
+              "name": "Rate limit exceeded or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "neo",
+                    "browse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "DEMO_KEY"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nasa.gov/neo/rest/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "18035898-149c-460f-96aa-4ae750dcdea7",
+    "name": "NASA NeoWs - Near Earth Object Web Service Browse API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NASA Near Earth Object Web Service (NeoWs) REST API for searching and browsing near Earth asteroid information. Users can search for asteroids based on their closest approach date to Earth, look up a specific asteroid by NASA JPL small body (SPK-ID), and browse the overall dataset. Data originates from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). Maintained by the SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English, and Peter Baunach.\n\n\nContact Support:\n Name: NASA API Support",
+      "type": "text/plain"
+    }
+  }
+}

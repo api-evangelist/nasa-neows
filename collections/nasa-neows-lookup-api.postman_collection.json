@@ -1,0 +1,247 @@
+{
+  "item": [
+    {
+      "id": "5d58bbf5-2cf6-429e-81b7-1e96c61fce89",
+      "name": "Lookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45ac6464-1f09-4133-a994-7e7246e03348",
+          "name": "Lookup a specific asteroid by SPK-ID",
+          "request": {
+            "name": "Lookup a specific asteroid by SPK-ID",
+            "description": {
+              "content": "Retrieves detailed information for a specific near Earth object using its NASA JPL small body (SPK-ID) identifier.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "neo",
+                ":asteroidId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "DEMO_KEY",
+                  "description": "NASA API key. Defaults to DEMO_KEY if omitted."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "asteroidId",
+                  "description": "(Required) NASA JPL small body (SPK-ID) for the asteroid."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d2eba40-c172-42b8-bbde-1805f034e62a",
+              "name": "Successful response with asteroid detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "neo",
+                    ":asteroidId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "DEMO_KEY"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "asteroidId",
+                      "description": "(Required) NASA JPL small body (SPK-ID) for the asteroid."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"neo_reference_id\": \"string\",\n  \"name\": \"string\",\n  \"name_limited\": \"string\",\n  \"designation\": \"string\",\n  \"nasa_jpl_url\": \"https://nOhDAoDbiJRJXfwjLZOzpwye.xdlF2vTRregM5kTvJUO0bFB2ImyxkpjI\",\n  \"absolute_magnitude_h\": 6764.006375125148,\n  \"estimated_diameter\": {\n    \"kilometers\": {\n      \"estimated_diameter_min\": 117.34634724364201,\n      \"estimated_diameter_max\": 4971.331723676402\n    },\n    \"meters\": {\n      \"estimated_diameter_min\": 2260.0710346521246,\n      \"estimated_diameter_max\": 9346.900579242496\n    },\n    \"miles\": {\n      \"estimated_diameter_min\": 453.9176201671047,\n      \"estimated_diameter_max\": 7343.624088724435\n    },\n    \"feet\": {\n      \"estimated_diameter_min\": 2557.8724277984898,\n      \"estimated_diameter_max\": 2029.1426015225377\n    }\n  },\n  \"is_potentially_hazardous_asteroid\": true,\n  \"is_sentry_object\": true,\n  \"close_approach_data\": [\n    {\n      \"close_approach_date\": \"1947-08-01\",\n      \"close_approach_date_full\": \"string\",\n      \"epoch_date_close_approach\": 6693,\n      \"orbiting_body\": \"string\",\n      \"relative_velocity\": {\n        \"kilometers_per_second\": \"string\",\n        \"kilometers_per_hour\": \"string\",\n        \"miles_per_hour\": \"string\"\n      },\n      \"miss_distance\": {\n        \"astronomical\": \"string\",\n        \"lunar\": \"string\",\n        \"kilometers\": \"string\",\n        \"miles\": \"string\"\n      }\n    },\n    {\n      \"close_approach_date\": \"1952-07-12\",\n      \"close_approach_date_full\": \"string\",\n      \"epoch_date_close_approach\": 5251,\n      \"orbiting_body\": \"string\",\n      \"relative_velocity\": {\n        \"kilometers_per_second\": \"string\",\n        \"kilometers_per_hour\": \"string\",\n        \"miles_per_hour\": \"string\"\n      },\n      \"miss_distance\": {\n        \"astronomical\": \"string\",\n        \"lunar\": \"string\",\n        \"kilometers\": \"string\",\n        \"miles\": \"string\"\n      }\n    }\n  ],\n  \"orbital_data\": {\n    \"orbit_id\": \"string\",\n    \"orbit_determination_date\": \"string\",\n    \"first_observation_date\": \"1966-03-22\",\n    \"last_observation_date\": \"1953-05-01\",\n    \"data_arc_in_days\": 706,\n    \"observations_used\": 6687,\n    \"orbit_uncertainty\": \"string\",\n    \"minimum_orbit_intersection\": \"string\",\n    \"jupiter_tisserand_invariant\": \"string\",\n    \"epoch_osculation\": \"string\",\n    \"eccentricity\": \"string\",\n    \"semi_major_axis\": \"string\",\n    \"inclination\": \"string\",\n    \"ascending_node_longitude\": \"string\",\n    \"orbital_period\": \"string\",\n    \"perihelion_distance\": \"string\",\n    \"perihelion_argument\": \"string\",\n    \"aphelion_distance\": \"string\",\n    \"perihelion_time\": \"string\",\n    \"mean_anomaly\": \"string\",\n    \"mean_motion\": \"string\",\n    \"equinox\": \"string\",\n    \"orbit_class\": {\n      \"orbit_class_type\": \"string\",\n      \"orbit_class_description\": \"string\",\n      \"orbit_class_range\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d0b19bf-bca8-44fb-b54d-13293ae1df92",
+              "name": "Rate limit exceeded or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "neo",
+                    ":asteroidId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "DEMO_KEY"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "asteroidId",
+                      "description": "(Required) NASA JPL small body (SPK-ID) for the asteroid."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c4d7790-c4a7-4272-b509-5a6a1d851c1f",
+              "name": "Asteroid not found for the given SPK-ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "neo",
+                    ":asteroidId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "DEMO_KEY"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "asteroidId",
+                      "description": "(Required) NASA JPL small body (SPK-ID) for the asteroid."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nasa.gov/neo/rest/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e78d9a75-137b-4305-bd73-a1883602b6ae",
+    "name": "NASA NeoWs - Near Earth Object Web Service Browse Lookup API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NASA Near Earth Object Web Service (NeoWs) REST API for searching and browsing near Earth asteroid information. Users can search for asteroids based on their closest approach date to Earth, look up a specific asteroid by NASA JPL small body (SPK-ID), and browse the overall dataset. Data originates from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). Maintained by the SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English, and Peter Baunach.\n\n\nContact Support:\n Name: NASA API Support",
+      "type": "text/plain"
+    }
+  }
+}
