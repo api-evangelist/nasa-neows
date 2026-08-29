@@ -6,6 +6,19 @@ description: >
   closest approach date to Earth, look up a specific asteroid by NASA JPL small
   body (SPK-ID), and browse the overall dataset. Data originates from the NASA
   JPL Asteroid team and is maintained by the SpaceRocks Team.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
