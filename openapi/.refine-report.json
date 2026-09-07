@@ -13,6 +13,11 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "nasa-neows-browse-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "nasa-neows-feed-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "nasa-neows-lookup-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

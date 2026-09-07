@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: NASA NeoWs - Near Earth Object Web Service Browse Lookup API
   description: 'NASA Near Earth Object Web Service (NeoWs) REST API for searching and browsing near Earth asteroid information. Users can search for asteroids based on their closest approach date to Earth, look up a specific asteroid by NASA JPL small body (SPK-ID), and browse the overall dataset. Data originates from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). Maintained by the SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English, and Peter Baunach.
@@ -56,6 +56,42 @@ paths:
           description: Rate limit exceeded or invalid API key.
 components:
   schemas:
+    CloseApproach:
+      type: object
+      properties:
+        close_approach_date:
+          type: string
+          format: date
+          description: Date of closest approach (YYYY-MM-DD).
+        close_approach_date_full:
+          type: string
+          description: Full date and time of closest approach.
+        epoch_date_close_approach:
+          type: integer
+          description: Unix epoch timestamp of closest approach.
+        orbiting_body:
+          type: string
+          description: The body being orbited (e.g., Earth, Venus, Mars).
+        relative_velocity:
+          type: object
+          properties:
+            kilometers_per_second:
+              type: string
+            kilometers_per_hour:
+              type: string
+            miles_per_hour:
+              type: string
+        miss_distance:
+          type: object
+          properties:
+            astronomical:
+              type: string
+            lunar:
+              type: string
+            kilometers:
+              type: string
+            miles:
+              type: string
     OrbitalData:
       type: object
       description: Orbital mechanics parameters from JPL.
@@ -115,42 +151,24 @@ components:
               type: string
             orbit_class_range:
               type: string
-    CloseApproach:
+    DiameterRange:
       type: object
       properties:
-        close_approach_date:
-          type: string
-          format: date
-          description: Date of closest approach (YYYY-MM-DD).
-        close_approach_date_full:
-          type: string
-          description: Full date and time of closest approach.
-        epoch_date_close_approach:
-          type: integer
-          description: Unix epoch timestamp of closest approach.
-        orbiting_body:
-          type: string
-          description: The body being orbited (e.g., Earth, Venus, Mars).
-        relative_velocity:
-          type: object
-          properties:
-            kilometers_per_second:
-              type: string
-            kilometers_per_hour:
-              type: string
-            miles_per_hour:
-              type: string
-        miss_distance:
-          type: object
-          properties:
-            astronomical:
-              type: string
-            lunar:
-              type: string
-            kilometers:
-              type: string
-            miles:
-              type: string
+        estimated_diameter_min:
+          type: number
+        estimated_diameter_max:
+          type: number
+    EstimatedDiameter:
+      type: object
+      properties:
+        kilometers:
+          $ref: '#/components/schemas/DiameterRange'
+        meters:
+          $ref: '#/components/schemas/DiameterRange'
+        miles:
+          $ref: '#/components/schemas/DiameterRange'
+        feet:
+          $ref: '#/components/schemas/DiameterRange'
     NearEarthObject:
       type: object
       properties:
@@ -190,24 +208,6 @@ components:
             $ref: '#/components/schemas/CloseApproach'
         orbital_data:
           $ref: '#/components/schemas/OrbitalData'
-    DiameterRange:
-      type: object
-      properties:
-        estimated_diameter_min:
-          type: number
-        estimated_diameter_max:
-          type: number
-    EstimatedDiameter:
-      type: object
-      properties:
-        kilometers:
-          $ref: '#/components/schemas/DiameterRange'
-        meters:
-          $ref: '#/components/schemas/DiameterRange'
-        miles:
-          $ref: '#/components/schemas/DiameterRange'
-        feet:
-          $ref: '#/components/schemas/DiameterRange'
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
