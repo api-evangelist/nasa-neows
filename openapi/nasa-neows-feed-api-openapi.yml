@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
-  title: NASA NeoWs - Near Earth Object Web Service Browse Feed API
-  description: 'NASA Near Earth Object Web Service (NeoWs) REST API for searching and browsing near Earth asteroid information. Users can search for asteroids based on their closest approach date to Earth, look up a specific asteroid by NASA JPL small body (SPK-ID), and browse the overall dataset. Data originates from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). Maintained by the SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English, and Peter Baunach.
-
-    '
+  title: NASA NeoWs - Near Earth Object Web Service Feed API
+  description: 'NASA Near Earth Object Web Service (NeoWs) REST API for searching and browsing near Earth asteroid information. Users can search for asteroids based on their closest approach date to Earth, look up a specific asteroid by NASA JPL small body (SPK-ID), and browse the overall dataset. Data originates from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). Maintained by the SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English, and Peter Baunach.'
   version: 1.0.0
   contact:
     name: NASA API Support
@@ -23,9 +21,7 @@ paths:
     get:
       operationId: getAsteroidFeed
       summary: Retrieve asteroids by closest approach date
-      description: 'Returns a list of asteroids based on their closest approach date to Earth within the specified date range. Maximum date range is 7 days.
-
-        '
+      description: Returns a list of asteroids based on their closest approach date to Earth within the specified date range. Maximum date range is 7 days.
       tags:
       - Feed
       parameters:
@@ -67,42 +63,56 @@ paths:
           description: Rate limit exceeded or invalid API key.
 components:
   schemas:
-    CloseApproach:
+    NearEarthObject:
       type: object
       properties:
-        close_approach_date:
+        id:
           type: string
-          format: date
-          description: Date of closest approach (YYYY-MM-DD).
-        close_approach_date_full:
+          description: Internal identifier.
+        neo_reference_id:
           type: string
-          description: Full date and time of closest approach.
-        epoch_date_close_approach:
-          type: integer
-          description: Unix epoch timestamp of closest approach.
-        orbiting_body:
+          description: NASA JPL small body reference ID.
+        name:
           type: string
-          description: The body being orbited (e.g., Earth, Venus, Mars).
-        relative_velocity:
-          type: object
-          properties:
-            kilometers_per_second:
-              type: string
-            kilometers_per_hour:
-              type: string
-            miles_per_hour:
-              type: string
-        miss_distance:
-          type: object
-          properties:
-            astronomical:
-              type: string
-            lunar:
-              type: string
-            kilometers:
-              type: string
-            miles:
-              type: string
+          description: Common name of the asteroid.
+        name_limited:
+          type: string
+          description: Short version of the asteroid name.
+        designation:
+          type: string
+          description: Minor planet designation.
+        nasa_jpl_url:
+          type: string
+          format: uri
+          description: URL to the JPL Small-Body Database entry.
+        absolute_magnitude_h:
+          type: number
+          description: Absolute magnitude (H) — a measure of intrinsic brightness.
+        estimated_diameter:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        is_potentially_hazardous_asteroid:
+          type: boolean
+          description: Whether this NEO is classified as potentially hazardous.
+        is_sentry_object:
+          type: boolean
+          description: Whether this object is tracked by the Sentry impact monitoring system.
+        close_approach_data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CloseApproach'
+        orbital_data:
+          $ref: '#/components/schemas/OrbitalData'
+    EstimatedDiameter:
+      type: object
+      properties:
+        kilometers:
+          $ref: '#/components/schemas/DiameterRange'
+        meters:
+          $ref: '#/components/schemas/DiameterRange'
+        miles:
+          $ref: '#/components/schemas/DiameterRange'
+        feet:
+          $ref: '#/components/schemas/DiameterRange'
     OrbitalData:
       type: object
       description: Orbital mechanics parameters from JPL.
@@ -196,56 +206,42 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/NearEarthObject'
-    EstimatedDiameter:
+    CloseApproach:
       type: object
       properties:
-        kilometers:
-          $ref: '#/components/schemas/DiameterRange'
-        meters:
-          $ref: '#/components/schemas/DiameterRange'
-        miles:
-          $ref: '#/components/schemas/DiameterRange'
-        feet:
-          $ref: '#/components/schemas/DiameterRange'
-    NearEarthObject:
-      type: object
-      properties:
-        id:
+        close_approach_date:
           type: string
-          description: Internal identifier.
-        neo_reference_id:
+          format: date
+          description: Date of closest approach (YYYY-MM-DD).
+        close_approach_date_full:
           type: string
-          description: NASA JPL small body reference ID.
-        name:
+          description: Full date and time of closest approach.
+        epoch_date_close_approach:
+          type: integer
+          description: Unix epoch timestamp of closest approach.
+        orbiting_body:
           type: string
-          description: Common name of the asteroid.
-        name_limited:
-          type: string
-          description: Short version of the asteroid name.
-        designation:
-          type: string
-          description: Minor planet designation.
-        nasa_jpl_url:
-          type: string
-          format: uri
-          description: URL to the JPL Small-Body Database entry.
-        absolute_magnitude_h:
-          type: number
-          description: Absolute magnitude (H) — a measure of intrinsic brightness.
-        estimated_diameter:
-          $ref: '#/components/schemas/EstimatedDiameter'
-        is_potentially_hazardous_asteroid:
-          type: boolean
-          description: Whether this NEO is classified as potentially hazardous.
-        is_sentry_object:
-          type: boolean
-          description: Whether this object is tracked by the Sentry impact monitoring system.
-        close_approach_data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CloseApproach'
-        orbital_data:
-          $ref: '#/components/schemas/OrbitalData'
+          description: The body being orbited (e.g., Earth, Venus, Mars).
+        relative_velocity:
+          type: object
+          properties:
+            kilometers_per_second:
+              type: string
+            kilometers_per_hour:
+              type: string
+            miles_per_hour:
+              type: string
+        miss_distance:
+          type: object
+          properties:
+            astronomical:
+              type: string
+            lunar:
+              type: string
+            kilometers:
+              type: string
+            miles:
+              type: string
   securitySchemes:
     ApiKeyQuery:
       type: apiKey

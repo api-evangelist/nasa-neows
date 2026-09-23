@@ -1,9 +1,7 @@
 {
   "provider": "nasa-neows",
   "sources": [
-    "nasa-neows-browse-api-openapi.yml",
-    "nasa-neows-feed-api-openapi.yml",
-    "nasa-neows-lookup-api-openapi.yml"
+    "_original/openapi.yml"
   ],
   "outputs": [
     "nasa-neows-browse-api-openapi.yml",
@@ -14,10 +12,16 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "nasa-neows-browse-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "nasa-neows-feed-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "nasa-neows-lookup-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "openapi.yml: declared missing tag: Browse",
+    "openapi.yml: declared missing tag: Feed",
+    "openapi.yml: declared missing tag: Lookup",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "nasa-neows-browse-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nasa-neows-feed-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nasa-neows-lookup-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
